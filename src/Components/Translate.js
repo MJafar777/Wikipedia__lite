@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Convert from "./Convert";
 import Dropdown from "./Dropdown";
 
 const dataDropdown = [
@@ -12,7 +13,7 @@ const dataDropdown = [
 const Translate = () => {
   const [term, setTerm] = useState("");
   const [translate, setTranslate] = useState("");
-
+  const [result, setresult] = useState("");
   const getInputData = (e) => {
     setTerm(e.target.value);
   };
@@ -35,7 +36,7 @@ const Translate = () => {
           },
         }
       );
-      console.log(data);
+      setresult(data.data.data.translations[0].translatedText);
     };
     const timer = setTimeout(() => {
       if (term) {
@@ -60,6 +61,9 @@ const Translate = () => {
         </div>
       </form>
       <Dropdown getData={getData} data={dataDropdown} label="Translate to" />
+      <h1>Output</h1>
+      <Convert result={result}/>
+      
     </div>
   );
 };
