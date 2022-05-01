@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Accordion from "./Accordion";
 import Dropdown from "./Dropdown";
 import Search from "./Search";
@@ -17,11 +18,31 @@ const dataDropdown = [
 ];
 
 const App = () => {
+  
+  const [term, setTerm] = useState("");
+  const [results, setResults] = useState([]);
+
+  const changeTerm = (e) => {
+    setTerm(e.target.value);
+  };
+
+  const getData = async () => {
+    const data = await axios.get("http://en.wikipedia.org/w/api.php", {
+      params: {
+        action: "query",
+        list: "search",
+        format: "json",
+        origin: "*",
+        srsearch: term,
+      },
+    });
+    setResults(data.data.query.search);
+  };
   return (
     <div>
-      {/* <Search /> */}
+      <Search />
       {/* <Accordion data={dataAccordion} /> */}
-      <Dropdown data={dataDropdown} />
+      {/* <Dropdown data={dataDropdown} /> */}
     </div>
   );
 };
