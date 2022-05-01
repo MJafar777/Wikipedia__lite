@@ -8,19 +8,6 @@ const Search = () => {
   const changeTerm = (e) => {
     setTerm(e.target.value);
   };
-
-  const getData = async () => {
-  const data = await axios.get("http://en.wikipedia.org/w/api.php", {
-    params: {
-      action: "query",
-      list: "search",
-      format: "json",
-      origin: "*",
-      srsearch: term,
-    },
-  });
-  setResults(data.data.query.search);
-};
   useEffect(() => {
     const getData = async () => {
       const data = await axios.get("http://en.wikipedia.org/w/api.php", {
@@ -30,7 +17,7 @@ const Search = () => {
           format: "json",
           origin: "*",
           srsearch: term,
-        },
+        },  
       });
       setResults(data.data.query.search);
     };

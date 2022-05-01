@@ -3,6 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 const Dropdown = (props) => {
   const [selection, setSelection] = useState(props.data[0]);
   const [check, setCheck] = useState(true);
+
+  useEffect(() => {
+    props.getData(selection.value);
+  }, [selection]);
+
   const renderData = () => {
     return props.data.map((val) => {
       if (val.value === selection.value) {
@@ -24,7 +29,7 @@ const Dropdown = (props) => {
   };
   useEffect(() => {
     document.querySelector("body").addEventListener("click", (e) => {
-      if (!e.target.contains(ref.current)) {
+      if (e.target === ref.current) {
         return;
       }
       setCheck(false);
@@ -33,9 +38,10 @@ const Dropdown = (props) => {
   const ref = useRef();
 
   return (
-    <div ref={ref} className="ui container">
-      <h1 style={{ textAlign: "center" }}>Dropdown</h1>
+    <div className="ui container">
+      <h1>{props.label}</h1>
       <div
+        ref={ref}
         onClick={() => setCheck(!check)}
         className={`ui fluid selection dropdown ${
           check ? "active visible" : ""
@@ -48,7 +54,6 @@ const Dropdown = (props) => {
           {renderData()}
         </div>
       </div>
-      <h1 style={{ color: `${selection.value}` }}>HELLO WORLD</h1>
     </div>
   );
 };
