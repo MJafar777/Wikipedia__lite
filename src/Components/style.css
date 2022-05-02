@@ -1,6 +1,10 @@
 #Accordion:active,
 #translate:active,
 #dropdown:active,
-#search:active {
+#search:active,
+#youtube:active {
   background-color: #f2f2f2;
+}
+body {
+  background-color: #20202058;
 }

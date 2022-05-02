@@ -1,10 +1,12 @@
 import React from "react";
 import Accordion from "./Accordion";
-import Convert from "./Convert";
 import Dropdown from "./Dropdown";
 import Search from "./Search";
 import Translate from "./Translate";
 import "./style.css";
+import "../components2/Design.css";
+
+import Youtube from "./Youtube";
 
 const dataAccordion = [
   { savol: "qalay", javob: "zur1" },
@@ -34,6 +36,9 @@ const router = () => {
   if (window.location.pathname === "/search") {
     return <Search />;
   }
+  if (window.location.pathname === "/youtube") {
+    return <Youtube />;
+  }
 };
 const App = () => {
   return (
@@ -50,6 +55,9 @@ const App = () => {
         </a>
         <a href="/search" id="search" className="item">
           search
+        </a>
+        <a href="/youtube" id="youtube" className="item">
+          youtube
         </a>
       </div>
       <div>{router()}</div>
