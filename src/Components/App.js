@@ -6,7 +6,7 @@ import Translate from "./Translate";
 import "./style.css";
 import "../components2/Design.css";
 import Weather from "./Weather";
-
+import Header from "./Header";
 import Youtube from "./Youtube";
 
 const dataAccordion = [
@@ -47,29 +47,7 @@ const router = () => {
 const App = () => {
   return (
     <div>
-      <div className="ui secondary  menu">
-        <a href="/" id="Accordion" className=" item">
-          Accordion
-        </a>
-        <a href="/translate" id="translate" className="item">
-          translate
-        </a>
-        <a href="/dropdown" id="dropdown" className="item">
-          dropdown
-        </a>
-        <a href="/search" id="search" className="item">
-          search
-        </a>
-        <a href="/youtube" id="youtube" className="item">
-          youtube
-        </a>
-        <a href="/weather" id="weather" className="item">
-          weather
-        </a>
-        <a href="/unsplash" id="unsplash" className="item">
-          unsplash
-        </a>
-      </div>
+      <Header />  
       <div>{router()}</div>
     </div>
   );
