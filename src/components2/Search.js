@@ -3,6 +3,7 @@ import logo from "./images/logo1.png";
 import functions from "./images/functions.png";
 import profile from "./images/profileImg.jpg";
 import "../components2/Design.css";
+
 const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleChange = (event) => setSearchTerm(event.target.value);
@@ -21,7 +22,6 @@ const Search = (props) => {
         </a>
         <input
           type="text"
-          // fullWidth
           placeholder="Search..."
           value={searchTerm}
           onChange={handleChange}

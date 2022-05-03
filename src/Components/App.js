@@ -5,6 +5,7 @@ import Search from "./Search";
 import Translate from "./Translate";
 import "./style.css";
 import "../components2/Design.css";
+import Weather from "./Weather";
 
 import Youtube from "./Youtube";
 
@@ -39,6 +40,9 @@ const router = () => {
   if (window.location.pathname === "/youtube") {
     return <Youtube />;
   }
+  if (window.location.pathname === "/unsplash") {
+    return <Weather />;
+  }
 };
 const App = () => {
   return (
@@ -58,6 +62,12 @@ const App = () => {
         </a>
         <a href="/youtube" id="youtube" className="item">
           youtube
+        </a>
+        <a href="/weather" id="weather" className="item">
+          weather
+        </a>
+        <a href="/unsplash" id="unsplash" className="item">
+          unsplash
         </a>
       </div>
       <div>{router()}</div>

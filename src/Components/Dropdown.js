@@ -39,7 +39,7 @@ const Dropdown = (props) => {
 
   return (
     <div className="ui container">
-      <h1>{props.label}</h1>
+      <h1 className="DropDownTxt">{props.label}</h1>
       <div
         ref={ref}
         onClick={() => setCheck(!check)}

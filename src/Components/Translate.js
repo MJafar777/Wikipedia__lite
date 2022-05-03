@@ -48,12 +48,14 @@ const Translate = () => {
     };
   }, [term, translate]);
 
+
   return (
     <div className="ui container">
-      <h1>Translate App</h1>
+      <h1 className="DropDownTxt">Translate App</h1>
       <form className="ui form">
         <div className="ui input focus" style={{ width: "60%" }}>
           <input
+          className="inputTran"
             onChange={getInputData}
             type="text"
             placeholder="Enter Text..."

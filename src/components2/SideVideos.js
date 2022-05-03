@@ -1,5 +1,6 @@
 import React from "react";
 import "../components2/Design.css";
+
 const SideVideos = ({ video, onVideoSelect }) => {
   return (
     <div>
