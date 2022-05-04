@@ -9,6 +9,104 @@ import Weather from "./Weather";
 import Header from "./Header";
 import Youtube from "./Youtube";
 
+import Redux from 'redux'
+
+
+console.clear();
+
+
+const signUpContract = (name , money)=>{
+  return {
+    type:"siginUp",
+    payload:{
+      name: name,
+      amout:money
+    }
+  }
+}
+
+
+const getMoney = (name,amout)=>{
+  return {
+    type: "getMoney",
+    payload:{
+      name:name,
+      amount:amout
+    }
+  }
+}
+
+
+const cancelContract = (name)=>{
+  return {
+    type:"Cancel",
+    payload:{
+      name:name
+    }
+  }
+}
+
+
+
+
+const cleamHistory = (form, history=[])=>{
+  if(form.type ==="getMoney"){
+    return history = [...history, form.payload];
+  }
+  return history;
+}  
+
+
+const acounting = (form , AllMoney = 100)=>{
+  if(form.type ==="siginUp"){
+    return AllMoney += form.payload.amount; 
+  }
+  else if(form.type ==="getMoney"){
+    return AllMoney -=form.payload.amount;
+  }
+  return AllMoney;
+}
+
+
+const policies = (form , history=[])=>{
+  if(form.type ==="siginUp"){
+    return history= [...history, form.payload];
+  }
+  return history;
+}
+
+const {configureStore , combineReducers} = Redux;
+
+const departaments = combineReducers({
+  acounting : acounting,
+  cleamHistory: cleamHistory,
+  policies: policies
+})
+
+
+const store = configureStore(departaments);
+
+
+store.dispatch(getMoney("umid" , 10));
+console.log(store.getState());
+
+/////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const dataAccordion = [
   { savol: "qalay", javob: "zur1" },
   { savol: "qalay", javob: "zur2" },
