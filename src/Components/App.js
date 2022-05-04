@@ -12,8 +12,6 @@ import Youtube from "./Youtube";
 import Redux from 'redux'
 
 
-console.clear();
-
 
 const signUpContract = (name , money)=>{
   return {
@@ -90,7 +88,7 @@ const store = configureStore(departaments);
 store.dispatch(getMoney("umid" , 10));
 console.log(store.getState());
 
-/////////////////////////////////////////////////
+////////////////////////////////////////////////
 
 
 
